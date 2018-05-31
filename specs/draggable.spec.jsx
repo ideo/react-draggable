@@ -56,7 +56,7 @@ describe('react-draggable', function () {
         assert(node.getAttribute('style').indexOf('touch-action: none') >= 0);
       }
       assert(node.getAttribute('style').indexOf('color: black') >= 0);
-      assert(node.getAttribute('style').indexOf(transformStyle + ': translate(0px, 0px)') >= 0);
+      assert(node.getAttribute('style').indexOf(transformStyle + ': translate3d(0px, 0px, 0px)') >= 0);
       assert(node.getAttribute('class') === 'foo react-draggable');
     });
 
@@ -90,7 +90,7 @@ describe('react-draggable', function () {
           <div
             className="react-draggable"
             style={{
-              [transformKey]: 'translate(0px, 0px)'
+              [transformKey]: 'translate3d(0px, 0px, 0px)'
             }}
             transform={null} />
         </DraggableCore>
@@ -236,7 +236,7 @@ describe('react-draggable', function () {
 
       const style = node.getAttribute('style');
       assert(dragged === true);
-      assert(style.indexOf('transform: translate(100px, 100px);') >= 0);
+      assert(style.indexOf('transform: translate3d(100px, 100px, 0px);') >= 0);
     });
 
     it('should honor "x" axis', function () {
@@ -252,7 +252,7 @@ describe('react-draggable', function () {
 
       const style = node.getAttribute('style');
       assert(dragged === true);
-      assert(style.indexOf('transform: translate(100px, 0px);') >= 0);
+      assert(style.indexOf('transform: translate3d(100px, 0px, 0px);') >= 0);
     });
 
     it('should honor "y" axis', function () {
@@ -268,7 +268,7 @@ describe('react-draggable', function () {
 
       const style = node.getAttribute('style');
       assert(dragged === true);
-      assert(style.indexOf('transform: translate(0px, 100px);') >= 0);
+      assert(style.indexOf('transform: translate3d(0px, 100px, 0px);') >= 0);
     });
 
     it('should honor "none" axis', function () {
@@ -284,7 +284,7 @@ describe('react-draggable', function () {
 
       const style = node.getAttribute('style');
       assert(dragged === true);
-      assert(style.indexOf('transform: translate(0px, 0px);') >= 0);
+      assert(style.indexOf('transform: translate3d(0px, 0px, 0px);') >= 0);
     });
 
     it('should detect if an element is instanceof SVGElement and set state.isElementSVG to true', function() {
@@ -392,7 +392,7 @@ describe('react-draggable', function () {
 
         const style = node.getAttribute('style');
         assert(dragged === true);
-        assert(style.indexOf('transform: translate(100px, 100px);') >= 0);
+        assert(style.indexOf('transform: translate3d(100px, 100px, 0px);') >= 0);
 
         renderRoot.parentNode.removeChild(renderRoot);
         done();
